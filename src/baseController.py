@@ -16,7 +16,8 @@ class baseController(controller.CementBaseController):
         config_defaults = {}
 
         arguments = [
-                (['-b', '--bin'], dict(action='store', help='BIN Lookup'))
+                (['-b', '--bin'], dict(action='store', help='BIN Lookup')),
+                (['-v', '--verbose'], dict(action='store_true', help='Verbose Output'))
                 ]
 
     @controller.expose(hide=True, aliases=['run'])
