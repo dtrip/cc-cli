@@ -5,7 +5,7 @@ import os
 
 sys.path.append(os.getcwd() + '/src')
 
-import App
+from src import App
 
 try:
     App = App.App()
