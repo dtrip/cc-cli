@@ -34,10 +34,9 @@ class Bin(controller.CementBaseController):
 
         for k,v in d.items():
             a.append([k, v])
-            # print k, v
 
         print("Issuer information\n")
-        print tabulate(a, ['Attribute', 'Value'], tablefmt="grid")
+        print tabulate(a, ['Attribute', 'Value'], tablefmt="simple")
         print("\n")
 
         return True
