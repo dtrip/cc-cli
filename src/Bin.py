@@ -2,6 +2,8 @@
 from cement.core import controller
 from tabulate import tabulate
 from pprint import pprint
+from colorama import init, Fore, Back, Style
+
 import requests
 import json
 
@@ -35,7 +37,7 @@ class Bin(controller.CementBaseController):
         for k,v in d.items():
             a.append([k, v])
 
-        print("Issuer information\n")
+        print(Style.BRIGHT + "\nIssuer information" + Style.RESET_ALL + "\n")
         print tabulate(a, ['Attribute', 'Value'], tablefmt="simple")
         print("\n")
 
