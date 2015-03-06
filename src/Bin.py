@@ -30,11 +30,16 @@ class Bin(controller.CementBaseController):
     # outputs bin data to cmd line
     def __printTable(self, d):
 
-        for attr in d:
-            js = json.dumps(attr)
-            print(js)
-        # print(d)
-        # print tabulate(d)
+        a = []
+
+        for k,v in d.items():
+            a.append([k, v])
+            # print k, v
+
+        print("Issuer information\n")
+        print tabulate(a, ['Attribute', 'Value'], tablefmt="grid")
+        print("\n")
+
         return True
 
     # makes HTTP GET request to binlist.net REST api
