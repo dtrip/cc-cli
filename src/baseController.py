@@ -17,6 +17,7 @@ class baseController(controller.CementBaseController):
 
         arguments = [
                 (['-b', '--bin'], dict(action='store', help='BIN Lookup')),
+                (['-c', '--check'], dict(action='store', help='Check card number to ensure its valid (complies with luhn algorithm)')),
                 (['-v', '--verbose'], dict(action='store_true', help='Verbose Output'))
                 ]
 
