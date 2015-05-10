@@ -8,11 +8,12 @@
 # and status_of_proc is working.
 . /lib/lsb/init-functions
 
+PY=$(which python)
 
 # Adds alias to global zshrc
 if [ -z /etc/zsh/zshrc ]; then
     log_daemon_msg "Creating zsh alias..."
-    if echo "alias credit='/usr/local/share/cc/cc.py'" >> /etc/zsh/zshrc; then
+    if echo "alias credit='$PY /usr/local/share/cc/cc.py'" >> /etc/zsh/zshrc; then
         log_end_msg 0
     else
         log_end_msg 1
@@ -22,7 +23,7 @@ fi
 # Adds alias to global bash
 if [ -z /etc/bash.bashrc ]; then
     log_daemon_msg "Creating bash alias..."
-    if echo "alias credit='/usr/local/share/cc/cc.py'" >> /etc/bash.bashrc; then
+    if echo "alias credit='$PY /usr/local/share/cc/cc.py'" >> /etc/bash.bashrc; then
         log_end_msg 0
     else
         log_end_msg 1
