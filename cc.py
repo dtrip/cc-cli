@@ -11,4 +11,4 @@ try:
     App = App.App()
     App.run()
 except Exception as e:
-    print("Error: %s" % str(e))
+    print("[!] Error: %s" % str(e))
