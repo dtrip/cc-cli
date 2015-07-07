@@ -6,8 +6,12 @@ from colorama import init, Fore, Back, Style
 
 import requests
 import json
+import cards
 
 class Bin(controller.CementBaseController):
+
+    cards = cards.cards()
+
     class Meta:
         interface = controller.IController
         label = 'Bin'
@@ -20,6 +24,8 @@ class Bin(controller.CementBaseController):
 
     @controller.expose(help='Lookup BIN Number')
     def bin(self):
+
+        self.app.pargs.bin = self.cards.getBin(self.app.pargs.bin)
 
         if (self.app.pargs.verbose):
             print("Looking up bin number: %s" % self.app.pargs.bin)

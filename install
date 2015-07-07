@@ -1,5 +1,7 @@
 #!/bin/bash
 
+BIN='/usr/local/bin/'
+
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh
 
@@ -29,3 +31,8 @@ if [ -z /etc/bash.bashrc ]; then
         log_end_msg 1
     fi
 fi
+
+
+# add bash script to bin folder
+log_daemon_msg "Setting up bin..."
+
