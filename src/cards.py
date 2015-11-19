@@ -3,6 +3,10 @@ class cards:
     def __init__(self):
         pass
 
+    def luhn(self, n):
+        r = [int(ch) for ch in str(n)][::-1]
+        return (sum(r[0::2]) + sum(sum(divmod(d*2,10)) for d in r[1::2])) % 10 == 0
+
     """ checks to make sure that the card passes a luhn mod-10 checksum """
     """ Thanks To: http://code.activestate.com/recipes/172845-python-luhn-checksum-for-credit-card-validation/ """
     def cardLuhnChecksumIsValid(card_number):

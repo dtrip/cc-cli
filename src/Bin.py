@@ -25,6 +25,16 @@ class Bin(controller.CementBaseController):
     @controller.expose(help='Lookup BIN Number')
     def bin(self):
 
+        # if card number is 15 or 16 digits, will verify it passes luh algorithm check
+        if len(self.app.pargs.bin) == 15 or len(self.app.pargs.bin) == 16:
+            lpass = self.cards.luhn(self.app.pargs.bin)
+
+            if lpass == True:
+                print("%s[+] Card number passed luhn algorithm check%s" % (Style.BRIGHT, Style.RESET_ALL))
+            else:
+                print("%s%s[!] Card does NOT pass luhn algorithm check!%s" % (Style.BRIGHT, Fore.RED, Style.RESET_ALL))
+
+
         self.app.pargs.bin = self.cards.getBin(self.app.pargs.bin)
 
         if (self.app.pargs.verbose):
@@ -43,7 +53,7 @@ class Bin(controller.CementBaseController):
         for k,v in d.items():
             a.append([k, v])
 
-        print(Style.BRIGHT + "\nIssuer information" + Style.RESET_ALL + "\n")
+        print("%s[+] Issuer information\n%s" % (Style.BRIGHT,Style.RESET_ALL))
         print tabulate(a, ['Attribute', 'Value'], tablefmt="simple")
         print("\n")
 
