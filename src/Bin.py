@@ -15,7 +15,7 @@ class Bin(controller.CementBaseController):
     class Meta:
         interface = controller.IController
         label = 'Bin'
-        description = 'Search Credit card Bank Identifacation Number'
+        description = 'Search Credit card Bank Identification Number'
         stacked_on = 'base'
 
     def default(self):
@@ -64,7 +64,8 @@ class Bin(controller.CementBaseController):
     #
     # @return string - JSON bin data
     def __getBinData(self, b):
-        url = "http://www.binlist.net/json/" + b
+        # url = "http://www.binlist.net/json/" + b
+        url = "https://bins.payout.com/api/v1/bins/" + b
 
         if (self.app.pargs.verbose):
             print("Pulling Bin data from: %s" % url)
